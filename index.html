@@ -382,6 +382,19 @@
         margin-top: 30px;
       }
 
+      .skin-footer {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+      }
+
+      .skin-footer .back-button {
+        justify-self: start;
+      }
+
+      .skin-footer .continue-button {
+        justify-self: end;
+      }
+
       .step-count {
         margin: 0;
         color: #95738d;
@@ -457,6 +470,25 @@
 
         .continue-button {
           width: 100%;
+        }
+
+        .skin-footer {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .skin-footer .step-count {
+          grid-column: 1 / -1;
+        }
+
+        .skin-footer .back-button {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .skin-footer .continue-button {
+          grid-column: 2;
+          grid-row: 2;
+          width: auto;
         }
       }
 
@@ -542,7 +574,8 @@
                 <p class="preview-tone" id="preview-tone" aria-live="polite"></p>
               </aside>
             </div>
-            <footer class="setup-footer">
+            <footer class="setup-footer skin-footer">
+              <button class="back-button" id="back-to-name" type="button">← Back</button>
               <p class="step-count">Step 1 of 1 available</p>
               <button class="continue-button" id="continue-button" type="button">Continue <span aria-hidden="true">→</span></button>
             </footer>
@@ -677,6 +710,12 @@
         nameScreen.hidden = true;
         startScreen.hidden = false;
         document.querySelector("#start-button").focus();
+      });
+
+      document.querySelector("#back-to-name").addEventListener("click", () => {
+        skinScreen.hidden = true;
+        nameScreen.hidden = false;
+        playerNameInput.focus();
       });
 
       document.querySelector("#continue-button").addEventListener("click", () => {
