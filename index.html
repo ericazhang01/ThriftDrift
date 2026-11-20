@@ -405,6 +405,10 @@
         left: calc(50% + 8px);
       }
 
+      .hair-overlay--black-blonde {
+        left: calc(50% + 8px);
+      }
+
       .setup-footer {
         display: flex;
         align-items: center;
@@ -800,6 +804,7 @@
         overlay.src = hair.image;
         overlay.alt = `${hair.name} hairstyle`;
         overlay.classList.toggle("hair-overlay--brunette-pink", hair.name === "Brunette" || hair.name === "Pink");
+        overlay.classList.toggle("hair-overlay--black-blonde", hair.name === "Black" || hair.name === "Blonde");
         overlay.hidden = false;
         previewHair.textContent = `${hair.name} hair selected`;
       }
