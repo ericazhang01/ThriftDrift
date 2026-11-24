@@ -510,7 +510,353 @@
         margin-top: 12px;
       }
 
+      .closet-content {
+        display: grid;
+        grid-template-columns: minmax(300px, 430px) minmax(360px, 1fr);
+        min-height: 680px;
+        background: #d7eee9;
+      }
+
+      #closet-screen {
+        min-height: 100svh;
+        place-items: stretch;
+        padding: 0;
+        background: #d7eee9;
+      }
+
+      #closet-screen .game-window {
+        width: 100%;
+        min-height: 100svh;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: #d7eee9;
+        box-shadow: none;
+      }
+
+      .closet-wardrobe {
+        min-width: 0;
+        margin: 18px 0 18px 18px;
+        overflow: hidden;
+        border: 3px solid #54356b;
+        border-radius: 10px;
+        background: rgba(255, 250, 248, 0.96);
+        box-shadow: 7px 7px 0 rgba(84, 53, 107, 0.14);
+      }
+
+      .closet-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-bottom: 4px solid #54356b;
+        background: #f7d7e5;
+      }
+
+      .closet-tab {
+        min-height: 62px;
+        padding: 8px 6px;
+        border: 0;
+        border-right: 2px solid #54356b;
+        border-bottom: 2px solid #54356b;
+        background: #fff7f5;
+        color: #59396e;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .closet-tab:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .closet-tab:nth-child(n + 4) {
+        border-bottom: 0;
+      }
+
+      .closet-tab:hover {
+        background: #ffeaf2;
+      }
+
+      .closet-tab.is-active {
+        background: #75d7d0;
+        box-shadow: inset 0 -5px 0 #438b89;
+        color: #38244f;
+      }
+
+      .closet-items {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-height: 520px;
+        overflow-y: auto;
+        padding: 16px;
+      }
+
+      .closet-item {
+        position: relative;
+        display: grid;
+        min-width: 0;
+        min-height: 142px;
+        place-items: center;
+        overflow: hidden;
+        padding: 8px;
+        border: 2px dashed #e88eb4;
+        border-radius: 8px;
+        background:
+          radial-gradient(#f6c6d9 1px, transparent 1px) 0 0 / 12px 12px,
+          #fff4f6;
+      }
+
+      .closet-item:hover {
+        border-style: solid;
+        border-color: #d74791;
+        background-color: #ffedf5;
+      }
+
+      .closet-item.is-selected {
+        border: 3px solid #d74791;
+        background: #ffedf5;
+        box-shadow: 3px 3px 0 #f4c1d6;
+      }
+
+      .closet-item img {
+        width: 100%;
+        height: 112px;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .closet-item__name {
+        min-height: 18px;
+        color: #59396e;
+        font-size: 0.68rem;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      .closet-item--none {
+        place-content: center;
+        text-align: center;
+      }
+
+      .closet-item--none::before {
+        content: "×";
+        display: block;
+        margin-bottom: 5px;
+        color: #d74791;
+        font-size: 2.8rem;
+        line-height: 1;
+      }
+
+      .closet-character {
+        position: relative;
+        display: grid;
+        min-height: 680px;
+        place-items: end center;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, transparent 0 49.5%, rgba(84, 53, 107, 0.08) 49.5% 50.5%, transparent 50.5%),
+          linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
+          radial-gradient(ellipse at 70% 85%, #f7c0d7 0 9%, transparent 10%);
+        background-color: #d7eee9;
+      }
+
+      .closet-character__title {
+        position: absolute;
+        z-index: 20;
+        top: 14px;
+        left: 14px;
+        max-width: calc(100% - 28px);
+        margin: 0;
+        color: #59396e;
+        font-size: 0.78rem;
+      }
+
+      .closet-character__stage {
+        position: relative;
+        width: min(470px, 96%);
+        height: 620px;
+      }
+
+      .closet-layer {
+        position: absolute;
+        
+        pointer-events: none;
+        transform: translateX(-50%);
+        object-fit: contain;
+        user-select: none;
+      }
+
+      .closet-layer--base {
+        z-index: 1;
+        bottom: 28px;
+        width: 68%;
+        height: 560px;
+        left: 50%;
+      }
+
+      .closet-layer--hair {
+        z-index: 4;
+        top: 12px;
+        width: 38%;
+        height: 112px;
+        left: 55%;
+      }
+
+      .closet-layer--dress,
+      .closet-layer--jeans,
+      .closet-layer--skirt {
+        z-index: 3;
+      }
+
+      .closet-layer--dress {
+        bottom: 200px;
+        width: 50%;
+        height: 580px;
+        left: 50%;
+      }
+
+      .closet-layer--shirt {
+        bottom: 325px;
+        width: 39%;
+        height: 205px;
+        left: 52%;
+        z-index: 4;
+      }
+
+      .closet-layer--jeans {
+        bottom: 26px;
+        width: 51%;
+        height: 369px;
+        left: 58%;
+      }
+
+      .closet-layer--skirt {
+        bottom: 190px;
+        width: 44%;
+        height: 220px;
+        left: 48%;
+      }
+
+      .closet-layer--accessory {
+        z-index: 5;
+        bottom: 20px;
+        width: 30%;
+        height: 200px;
+        left: 50%;
+      }
+
+      .closet-layer--shoe {
+        z-index: 6;
+        bottom: 20px;
+        width: 68%;
+        height: 120px;
+      }
+
+      /* Individual clothing classes let each PNG be positioned independently. */
+      .closet-layer--dress-1 {}
+      .closet-layer--dress-1-alt {}
+      .closet-layer--dress-2 {}
+      .closet-layer--dress-2-alt {}
+
+      .closet-layer--shirt-1 {
+        bottom: 322px;
+        width: 38%;
+        height: 205px;
+        left: 52%;
+      }
+      .closet-layer--shirt-1-alt {
+        bottom: 322px;
+        width: 38%;
+        height: 205px;
+        left: 52%;
+      }
+      .closet-layer--shirt-2 {
+        bottom: 311px;
+        width: 58%;
+        height: 216px;
+        left: 52%;
+      }
+      .closet-layer--shirt-2-alt {
+        bottom: 311px;
+        width: 58%;
+        height: 216px;
+        left: 52%;
+      }
+      .closet-layer--shirt-3 {
+        bottom: 308px;
+        width: 35%;
+        height: 205px;
+        left: 52%;
+      }
+      .closet-layer--shirt-3-alt {
+        bottom: 308px;
+        width: 35%;
+        height: 205px;
+        left: 52%;
+      }
+
+      .closet-layer--acc-1 {}
+      .closet-layer--acc-2 {}
+      .closet-layer--acc-3 {}
+      .closet-layer--acc-3-alt {}
+      .closet-layer--acc-3-alt-2 {}
+      .closet-layer--acc-4 {}
+      .closet-layer--acc-5 {}
+
+      .closet-layer--shoes-1 {}
+      .closet-layer--shoes-1-alt {}
+      .closet-layer--shoes-2 {}
+      .closet-layer--shoes-3 {}
+      .closet-layer--shoes-3-alt {}
+
+      .closet-platform {
+        position: absolute;
+        z-index: 0;
+        bottom: 6px;
+        left: 50%;
+        width: 84%;
+        height: 42px;
+        border: 3px solid #743d73;
+        border-radius: 50%;
+        background: #f6a4c7;
+        box-shadow: inset 0 -8px 0 #dd7fb0;
+        transform: translateX(-50%);
+      }
+
+      .closet-footer {
+        display: flex;
+        justify-content: flex-start;
+        padding: 12px 18px;
+        border-top: 0;
+        background: #d7eee9;
+      }
+
       @media (max-width: 700px) {
+        .closet-content {
+          grid-template-columns: 1fr;
+        }
+
+        .closet-wardrobe {
+          border-right: 0;
+          border-bottom: 4px solid #54356b;
+        }
+
+        .closet-items {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          max-height: 310px;
+        }
+
+        .closet-character {
+          min-height: 520px;
+        }
+
+        .closet-character__stage {
+          height: 500px;
+        }
+
+        .closet-layer--base {
+          height: 460px;
+        }
+
         .customizer {
           grid-template-columns: 1fr;
         }
@@ -706,16 +1052,29 @@
 
       <section class="setup-screen" id="closet-screen" aria-labelledby="closet-title" hidden>
         <div class="game-window">
-          <header class="window-bar">
-            <p class="window-bar__title pixel-font">Thrift Drift — Closet Setup</p>
-            <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
-          </header>
-          <div class="placeholder-content">
-            <p class="step-kicker">Customization saved</p>
-            <h2 class="step-title" id="closet-title" tabindex="-1"></h2>
-            <p>Your closet is currently being put together. Your skin tone and hair color customization have been saved for this visit.</p>
-            <button class="back-button" id="back-to-welcome" type="button">← Back to welcome</button>
+          <div class="closet-content">
+            <div class="closet-wardrobe">
+              <nav class="closet-tabs" id="closet-tabs" aria-label="Clothing categories"></nav>
+              <div class="closet-items" id="closet-items" aria-live="polite"></div>
+            </div>
+            <div class="closet-character">
+              <h2 class="closet-character__title pixel-font" id="closet-title" tabindex="-1"></h2>
+              <div class="closet-character__stage" id="closet-character-stage">
+                <img class="closet-layer closet-layer--base" id="closet-base" alt="Selected character">
+                <img class="closet-layer closet-layer--hair" id="closet-hair" alt="">
+                <img class="closet-layer closet-layer--dress" id="closet-dress" alt="" hidden>
+                <img class="closet-layer closet-layer--shirt" id="closet-shirt" alt="" hidden>
+                <img class="closet-layer closet-layer--jeans" id="closet-jeans" alt="" hidden>
+                <img class="closet-layer closet-layer--skirt" id="closet-skirt" alt="" hidden>
+                <img class="closet-layer closet-layer--accessory" id="closet-accessory" alt="" hidden>
+                <img class="closet-layer closet-layer--shoe" id="closet-shoe" alt="" hidden>
+                <div class="closet-platform" aria-hidden="true"></div>
+              </div>
+            </div>
           </div>
+          <footer class="closet-footer">
+            <button class="back-button" id="back-to-welcome" type="button">← Back to welcome</button>
+          </footer>
         </div>
       </section>
     </main>
@@ -924,9 +1283,236 @@
         welcomeTitle.focus();
       });
 
+      const closetCategories = [
+        {
+          id: "dress",
+          label: "Dress",
+          items: [
+            { id: "dress-1", name: "Dress 1", image: "assets/Clothes/Dress_1.png" },
+            { id: "dress-1-alt", name: "Dress 1 Alt", image: "assets/Clothes/Dress_1_opt_2.png" },
+            { id: "dress-2", name: "Dress 2", image: "assets/Clothes/Dress_2.png" },
+            { id: "dress-2-alt", name: "Dress 2 Alt", image: "assets/Clothes/Dress_2_opt_2.png" }
+          ]
+        },
+        {
+          id: "shirt",
+          label: "Shirt",
+          items: [
+            { id: "shirt-1", name: "Shirt 1", image: "assets/Clothes/Shirt_1.png" },
+            { id: "shirt-1-alt", name: "Shirt 1 Alt", image: "assets/Clothes/Shirt_1_opt_2.png" },
+            { id: "shirt-2", name: "Shirt 2", image: "assets/Clothes/Shirt_2.png" },
+            { id: "shirt-2-alt", name: "Shirt 2 Alt", image: "assets/Clothes/Shirt_2_opt_2.png" },
+            { id: "shirt-3", name: "Shirt 3", image: "assets/Clothes/Shirt_3.png" },
+            { id: "shirt-3-alt", name: "Shirt 3 Alt", image: "assets/Clothes/Shirt_3_opt_2.png" }
+          ]
+        },
+        {
+          id: "jeans",
+          label: "Jeans",
+          items: [
+            { id: "jeans", name: "Jeans", image: "assets/Clothes/Jeans.png" },
+            { id: "jeans-alt", name: "Jeans Alt", image: "assets/Clothes/Jeans_opt_2.png" }
+          ]
+        },
+        {
+          id: "skirt",
+          label: "Skirt",
+          items: [
+            { id: "skirt-1", name: "Skirt 1", image: "assets/Clothes/Skirt_1.png" },
+            { id: "skirt-1-alt", name: "Skirt 1 Alt", image: "assets/Clothes/Skirt_1_opt_2.png" },
+            { id: "skirt-2", name: "Skirt 2", image: "assets/Clothes/Skirt_2.png" },
+            { id: "skirt-2-alt", name: "Skirt 2 Alt", image: "assets/Clothes/Skirt_2_opt_2.png" }
+          ]
+        },
+        {
+          id: "accessory",
+          label: "Accessories",
+          items: [
+            { id: "acc-1", name: "Accessory 1", image: "assets/Accessories/Acc_1.png" },
+            { id: "acc-2", name: "Accessory 2", image: "assets/Accessories/Acc_2.png" },
+            { id: "acc-3", name: "Accessory 3", image: "assets/Accessories/Acc_3.png" },
+            { id: "acc-3-alt", name: "Accessory 3 Alt", image: "assets/Accessories/Acc_3_opt_2.png" },
+            { id: "acc-3-alt-2", name: "Accessory 3 Alt 2", image: "assets/Accessories/Acc_3_opt_3.png" },
+            { id: "acc-4", name: "Accessory 4", image: "assets/Accessories/Acc_4.png" },
+            { id: "acc-5", name: "Accessory 5", image: "assets/Accessories/Acc_5.png" }
+          ]
+        },
+        {
+          id: "shoe",
+          label: "Shoes",
+          items: [
+            { id: "shoes-1", name: "Shoes 1", image: "assets/Shoes/Shoes_1.png" },
+            { id: "shoes-1-alt", name: "Shoes 1 Alt", image: "assets/Shoes/Shoes_1_opt_2.png" },
+            { id: "shoes-2", name: "Shoes 2", image: "assets/Shoes/Shoes_2.png" },
+            { id: "shoes-3", name: "Shoes 3", image: "assets/Shoes/Shoes_3.png" },
+            { id: "shoes-3-alt", name: "Shoes 3 Alt", image: "assets/Shoes/Shoes_3_opt_2.png" }
+          ]
+        }
+      ];
+
+      const closetSelection = {
+        dress: null,
+        shirt: null,
+        jeans: null,
+        skirt: null,
+        accessory: null,
+        shoe: null
+      };
+      let activeClosetCategory = "dress";
+      let closetInitialized = false;
+
+      function getSelectedSetupImage(selector) {
+        const selected = document.querySelector(selector);
+        return selected ? selected.value : "";
+      }
+
+      function renderClosetBase() {
+        const checkedTone = document.querySelector('input[name="skin-tone"]:checked');
+        const checkedHair = document.querySelector('input[name="hair-color"]:checked');
+        const toneName = checkedTone ? checkedTone.value : "light-medium";
+        const hairName = checkedHair ? checkedHair.value : "black";
+        const toneFiles = {
+          light: "assets/Body_Base/Body_1.png",
+          "light-medium": "assets/Body_Base/Body_2.png",
+          medium: "assets/Body_Base/Body_3.png",
+          deep: "assets/Body_Base/Body_4.png"
+        };
+        const hairFiles = {
+          black: "assets/Body_Base/Base Hair Black.png",
+          blonde: "assets/Body_Base/Base Hair Blonde.png",
+          brunette: "assets/Body_Base/Base Hair Brunette.png",
+          pink: "assets/Body_Base/Base Hair Pink.png"
+        };
+
+        const base = document.querySelector("#closet-base");
+        const hair = document.querySelector("#closet-hair");
+        base.src = toneFiles[toneName] || toneFiles["light-medium"];
+        base.alt = `${toneName} skin tone character`;
+        hair.src = hairFiles[hairName] || hairFiles.black;
+        hair.alt = `${hairName} hair`;
+      }
+
+      function renderClosetOutfit() {
+        ["dress", "shirt", "jeans", "skirt", "accessory", "shoe"].forEach((categoryId) => {
+          const layer = document.querySelector(`#closet-${categoryId}`);
+          const item = closetSelection[categoryId];
+          if (item) {
+            layer.src = item.image;
+            layer.alt = item.name;
+            layer.className = `closet-layer closet-layer--${categoryId} closet-layer--${item.id}`;
+            layer.hidden = false;
+          } else {
+            layer.removeAttribute("src");
+            layer.alt = "";
+            layer.className = `closet-layer closet-layer--${categoryId}`;
+            layer.hidden = true;
+          }
+        });
+      }
+
+      function selectClosetItem(categoryId, item) {
+        if (closetSelection[categoryId]?.id === item.id) {
+          closetSelection[categoryId] = null;
+        } else {
+          closetSelection[categoryId] = item;
+
+          if (categoryId === "dress") {
+            closetSelection.shirt = null;
+            closetSelection.jeans = null;
+            closetSelection.skirt = null;
+          } else if (categoryId === "shirt") {
+            closetSelection.dress = null;
+          } else if (categoryId === "jeans") {
+            closetSelection.dress = null;
+            closetSelection.skirt = null;
+          } else if (categoryId === "skirt") {
+            closetSelection.dress = null;
+            closetSelection.jeans = null;
+          }
+        }
+
+        renderClosetOutfit();
+        renderClosetItems(activeClosetCategory);
+      }
+
+      function clearClosetCategory(categoryId) {
+        closetSelection[categoryId] = null;
+        renderClosetOutfit();
+        renderClosetItems(activeClosetCategory);
+      }
+
+      function renderClosetItems(categoryId) {
+        const category = closetCategories.find((entry) => entry.id === categoryId);
+        const container = document.querySelector("#closet-items");
+        container.replaceChildren();
+
+        document.querySelectorAll(".closet-tab").forEach((tab) => {
+          tab.classList.toggle("is-active", tab.dataset.category === categoryId);
+          tab.setAttribute("aria-selected", tab.dataset.category === categoryId ? "true" : "false");
+        });
+
+        const noneButton = document.createElement("button");
+        noneButton.type = "button";
+        noneButton.className = "closet-item closet-item--none";
+        if (!closetSelection[categoryId]) noneButton.classList.add("is-selected");
+        noneButton.setAttribute("aria-label", `Remove ${category.label}`);
+        const noneName = document.createElement("span");
+        noneName.className = "closet-item__name";
+        noneName.textContent = "None";
+        noneButton.append(noneName);
+        noneButton.addEventListener("click", () => clearClosetCategory(categoryId));
+        container.append(noneButton);
+
+        category.items.forEach((item) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "closet-item";
+          if (closetSelection[categoryId]?.id === item.id) button.classList.add("is-selected");
+          button.setAttribute("aria-label", item.name);
+          button.setAttribute("aria-pressed", closetSelection[categoryId]?.id === item.id ? "true" : "false");
+
+          const image = document.createElement("img");
+          image.src = item.image;
+          image.alt = "";
+          const name = document.createElement("span");
+          name.className = "closet-item__name";
+          name.textContent = item.name;
+          button.append(image, name);
+          button.addEventListener("click", () => selectClosetItem(categoryId, item));
+          container.append(button);
+        });
+      }
+
+      function initializeCloset() {
+        if (!closetInitialized) {
+          closetInitialized = true;
+
+          const tabs = document.querySelector("#closet-tabs");
+          closetCategories.forEach((category, index) => {
+            const tab = document.createElement("button");
+            tab.type = "button";
+            tab.className = "closet-tab";
+            tab.dataset.category = category.id;
+            tab.textContent = category.label;
+            tab.setAttribute("role", "tab");
+            tab.setAttribute("aria-selected", index === 0 ? "true" : "false");
+            tab.addEventListener("click", () => {
+              activeClosetCategory = category.id;
+              renderClosetItems(category.id);
+            });
+            tabs.append(tab);
+          });
+        }
+
+        renderClosetBase();
+        renderClosetOutfit();
+        renderClosetItems(activeClosetCategory);
+      }
+
       document.querySelector("#enter-closet-button").addEventListener("click", () => {
         welcomeScreen.hidden = true;
         closetScreen.hidden = false;
+        initializeCloset();
         closetTitle.focus();
       });
 
