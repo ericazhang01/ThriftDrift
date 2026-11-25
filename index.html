@@ -522,6 +522,45 @@
         place-items: stretch;
         padding: 0;
         background: #d7eee9;
+                --drift-accent: #75d7d0;
+        --drift-stage: #d7eee9;
+        --drift-wardrobe: rgba(255, 250, 248, 0.96);
+        --drift-tabs: #f7d7e5;
+      }
+
+      #closet-screen[data-drift-level="1"] {
+        --drift-accent: #76e4d6;
+        --drift-stage: #d9f0e2;
+        --drift-wardrobe: #fff3f5;
+        --drift-tabs: #ffc9e1;
+      }
+
+      #closet-screen[data-drift-level="2"] {
+        --drift-accent: #78ebc0;
+        --drift-stage: #e3f0b9;
+        --drift-wardrobe: #ffeaf4;
+        --drift-tabs: #ffadd7;
+      }
+
+      #closet-screen[data-drift-level="3"] {
+        --drift-accent: #b7ee65;
+        --drift-stage: #f0e8a7;
+        --drift-wardrobe: #ffe0f0;
+        --drift-tabs: #ff8ac9;
+      }
+
+      #closet-screen[data-drift-level="4"] {
+        --drift-accent: #ffcf52;
+        --drift-stage: #f8d991;
+        --drift-wardrobe: #ffd3ec;
+        --drift-tabs: #ff68b5;
+      }
+
+      #closet-screen[data-drift-level="5"] {
+        --drift-accent: #ff9fc9;
+        --drift-stage: #ffc7d9;
+        --drift-wardrobe: #ffbce3;
+        --drift-tabs: #ed49a4;
       }
 
       #closet-screen .game-window {
@@ -530,7 +569,7 @@
         overflow: visible;
         border: 0;
         border-radius: 0;
-        background: #d7eee9;
+        background: var(--drift-stage);
         box-shadow: none;
       }
 
@@ -540,15 +579,16 @@
         overflow: hidden;
         border: 3px solid #54356b;
         border-radius: 10px;
-        background: rgba(255, 250, 248, 0.96);
+        background: var(--drift-wardrobe);
         box-shadow: 7px 7px 0 rgba(84, 53, 107, 0.14);
+        transition: background-color 240ms ease;
       }
 
       .closet-tabs {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         border-bottom: 4px solid #54356b;
-        background: #f7d7e5;
+        background: var(--drift-tabs);
       }
 
       .closet-tab {
@@ -576,9 +616,10 @@
       }
 
       .closet-tab.is-active {
-        background: #75d7d0;
+        background: var(--drift-accent);
         box-shadow: inset 0 -5px 0 #438b89;
         color: #38244f;
+        transition: background-color 240ms ease;
       }
 
       .closet-items {
@@ -656,7 +697,8 @@
           linear-gradient(90deg, transparent 0 49.5%, rgba(84, 53, 107, 0.08) 49.5% 50.5%, transparent 50.5%),
           linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
           radial-gradient(ellipse at 70% 85%, #f7c0d7 0 9%, transparent 10%);
-        background-color: #d7eee9;
+        background-color: var(--drift-stage);
+        transition: background-color 240ms ease;
       }
 
       .closet-character__title {
@@ -672,13 +714,12 @@
 
       .closet-character__stage {
         position: relative;
-        width: min(470px, 96%);
-        height: 620px;
+        width: min(470px, 96%, 57.8svh);
+        aspect-ratio: 47 / 62;
       }
 
       .closet-layer {
         position: absolute;
-        
         pointer-events: none;
         transform: translateX(-50%);
         object-fit: contain;
@@ -687,17 +728,17 @@
 
       .closet-layer--base {
         z-index: 1;
-        bottom: 28px;
+        bottom: 4.52%;
         width: 68%;
-        height: 560px;
+        height: 90.32%;
         left: 50%;
       }
 
       .closet-layer--hair {
         z-index: 4;
-        top: 12px;
+        top: 1.94%;
         width: 38%;
-        height: 112px;
+        height: 18.06%;
         left: 55%;
       }
 
@@ -708,47 +749,47 @@
       }
 
       .closet-layer--dress {
-        bottom: 200px;
+        bottom: 32.26%;
         width: 50%;
-        height: 580px;
+        height: 93.55%;
         left: 50%;
       }
 
       .closet-layer--shirt {
-        bottom: 325px;
+        bottom: 52.42%;
         width: 39%;
-        height: 205px;
+        height: 33.06%;
         left: 52%;
         z-index: 4;
       }
 
       .closet-layer--jeans {
-        bottom: 26px;
+        bottom: 4.19%;
         width: 51%;
-        height: 369px;
+        height: 59.52%;
         left: 58%;
       }
 
       .closet-layer--skirt {
-        bottom: 190px;
+        bottom: 30.65%;
         width: 44%;
-        height: 220px;
+        height: 35.48%;
         left: 48%;
       }
 
       .closet-layer--accessory {
         z-index: 5;
-        bottom: 20px;
+        bottom: 3.23%;
         width: 30%;
-        height: 200px;
+        height: 32.26%;
         left: 50%;
       }
 
       .closet-layer--shoe {
         z-index: 6;
-        bottom: 20px;
+        bottom: 3.23%;
         width: 68%;
-        height: 120px;
+        height: 19.35%;
       }
 
       /* Individual clothing classes let each PNG be positioned independently. */
@@ -758,39 +799,39 @@
       .closet-layer--dress-2-alt {}
 
       .closet-layer--shirt-1 {
-        bottom: 322px;
+        bottom: 51.94%;
         width: 38%;
-        height: 205px;
+        height: 33.06%;
         left: 52%;
       }
       .closet-layer--shirt-1-alt {
-        bottom: 322px;
+        bottom: 51.94%;
         width: 38%;
-        height: 205px;
+        height: 33.06%;
         left: 52%;
       }
       .closet-layer--shirt-2 {
-        bottom: 311px;
+        bottom: 50.16%;
         width: 58%;
-        height: 216px;
+        height: 34.84%;
         left: 52%;
       }
       .closet-layer--shirt-2-alt {
-        bottom: 311px;
+        bottom: 50.16%;
         width: 58%;
-        height: 216px;
+        height: 34.84%;
         left: 52%;
       }
       .closet-layer--shirt-3 {
-        bottom: 308px;
+        bottom: 49.68%;
         width: 35%;
-        height: 205px;
+        height: 33.06%;
         left: 52%;
       }
       .closet-layer--shirt-3-alt {
-        bottom: 308px;
+        bottom: 49.68%;
         width: 35%;
-        height: 205px;
+        height: 33.06%;
         left: 52%;
       }
 
@@ -822,6 +863,70 @@
         transform: translateX(-50%);
       }
 
+      .closet-suggestion {
+        position: absolute;
+        z-index: 30;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: start;
+        gap: 8px;
+        width: max-content;
+        max-width: min(280px, calc(100% - 24px));
+        max-height: calc(100% - 76px);
+        overflow: auto;
+        padding: 12px 12px 12px 16px;
+        border: 3px solid #54356b;
+        border-radius: 10px;
+        background: #fff4f8;
+        color: #38244f;
+        box-shadow: 5px 5px 0 #d74791;
+        font-size: 0.86rem;
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .closet-suggestion[hidden] {
+        display: none;
+      }
+
+      .closet-suggestion[data-intensity="2"] {
+        background: #f8ffd8;
+        box-shadow: 5px 5px 0 #a6a322;
+      }
+
+      .closet-suggestion[data-intensity="3"] {
+        background: #fff0a8;
+        box-shadow: 5px 5px 0 #d18a20;
+      }
+
+      .closet-suggestion[data-intensity="4"] {
+        background: #ffe0bd;
+        box-shadow: 5px 5px 0 #e46b42;
+      }
+
+      .closet-suggestion[data-intensity="5"] {
+        border-color: #a51f78;
+        background: #ffadd7;
+        box-shadow: 6px 6px 0 #a51f78;
+      }
+
+      .closet-suggestion__message {
+        margin: 0;
+      }
+
+      .closet-suggestion__dismiss {
+        min-width: 32px;
+        min-height: 32px;
+        padding: 2px 6px;
+        border: 2px solid currentColor;
+        border-radius: 6px;
+        background: #fff;
+        color: inherit;
+        font-size: 1.2rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
       .closet-footer {
         display: flex;
         justify-content: flex-start;
@@ -846,15 +951,11 @@
         }
 
         .closet-character {
-          min-height: 520px;
+          min-height: min(620px, 74svh);
         }
 
         .closet-character__stage {
-          height: 500px;
-        }
-
-        .closet-layer--base {
-          height: 460px;
+          width: min(470px, 96%, 53svh);
         }
 
         .customizer {
@@ -1059,6 +1160,10 @@
             </div>
             <div class="closet-character">
               <h2 class="closet-character__title pixel-font" id="closet-title" tabindex="-1"></h2>
+              <div class="closet-suggestion" id="closet-suggestion" role="status" aria-live="polite" aria-atomic="true" hidden>
+                  <p class="closet-suggestion__message" id="closet-suggestion-message"></p>
+                  <button class="closet-suggestion__dismiss" id="closet-suggestion-dismiss" type="button" aria-label="Dismiss suggestion">×</button>
+              </div>
               <div class="closet-character__stage" id="closet-character-stage">
                 <img class="closet-layer closet-layer--base" id="closet-base" alt="Selected character">
                 <img class="closet-layer closet-layer--hair" id="closet-hair" alt="">
@@ -1107,6 +1212,10 @@
       const hairScreen = document.querySelector("#hair-screen");
       const welcomeScreen = document.querySelector("#welcome-screen");
       const closetScreen = document.querySelector("#closet-screen");
+      const closetCharacter = document.querySelector(".closet-character");
+      const closetSuggestion = document.querySelector("#closet-suggestion");
+      const closetSuggestionMessage = document.querySelector("#closet-suggestion-message");
+      const closetItems = document.querySelector("#closet-items");
       const swatchGrid = document.querySelector("#swatch-grid");
       const hairSwatchGrid = document.querySelector("#hair-swatch-grid");
       const previewTone = document.querySelector("#preview-tone");
@@ -1360,6 +1469,54 @@
       };
       let activeClosetCategory = "dress";
       let closetInitialized = false;
+      let closetInteractionCount = 0;
+      let suggestionReturnFocus = null;
+
+      const closetSuggestionMessages = [
+        "Want to explore another option? This is only a suggestion.",
+        "A different style might suit this look better!",
+        "Maybe a different {category} would pull the outfit together.",
+        "A brighter choice could make this whole look pop!",
+        "This look needs a bolder twist. Maybe switch things up!",
+        "A full style reset would make this look much more polished!"
+      ];
+
+      function positionClosetSuggestion() {
+        if (closetSuggestion.hidden) return;
+        const containerWidth = closetCharacter.clientWidth;
+        const containerHeight = closetCharacter.clientHeight;
+        const maxLeft = Math.max(12, containerWidth - closetSuggestion.offsetWidth - 12);
+        const maxTop = Math.max(12, containerHeight - closetSuggestion.offsetHeight - 12);
+        const minTop = Math.min(64, maxTop);
+        const left = 12 + Math.random() * (maxLeft - 12);
+        const top = minTop + Math.random() * (maxTop - minTop);
+        closetSuggestion.style.left = `${left}px`;
+        closetSuggestion.style.top = `${top}px`;
+      }
+
+      function showClosetSuggestion(driftLevel, categoryId) {
+        const category = closetCategories.find((entry) => entry.id === categoryId);
+        const messageIndex = Math.min(driftLevel, closetSuggestionMessages.length - 1);
+        closetSuggestionMessage.textContent = closetSuggestionMessages[messageIndex]
+          .replace("{category}", category ? category.label.toLowerCase() : "style");
+        closetSuggestion.dataset.intensity = String(driftLevel);
+        closetSuggestion.hidden = false;
+        positionClosetSuggestion();
+      }
+
+      function recordClosetInteraction(categoryId, returnFocus = null) {
+        closetInteractionCount += 1;
+        const categoryIndex = closetCategories.findIndex((entry) => entry.id === categoryId);
+        const driftLevel = Math.min(5, Math.max(Math.floor(closetInteractionCount / 2), categoryIndex));
+        closetScreen.dataset.driftLevel = String(driftLevel);
+        suggestionReturnFocus = returnFocus
+          || closetItems.querySelector(".closet-item.is-selected")
+          || document.querySelector(".closet-tab.is-active");
+        const popupProbability = Math.min(0.9, 0.15 + closetInteractionCount * 0.09);
+        if (Math.random() < popupProbability) {
+          showClosetSuggestion(driftLevel, categoryId);
+        }
+      }
 
       function getSelectedSetupImage(selector) {
         const selected = document.querySelector(selector);
@@ -1377,6 +1534,7 @@
           medium: "assets/Body_Base/Body_3.png",
           deep: "assets/Body_Base/Body_4.png"
         };
+
         const hairFiles = {
           black: "assets/Body_Base/Base Hair Black.png",
           blonde: "assets/Body_Base/Base Hair Blonde.png",
@@ -1386,6 +1544,7 @@
 
         const base = document.querySelector("#closet-base");
         const hair = document.querySelector("#closet-hair");
+
         base.src = toneFiles[toneName] || toneFiles["light-medium"];
         base.alt = `${toneName} skin tone character`;
         hair.src = hairFiles[hairName] || hairFiles.black;
@@ -1433,12 +1592,14 @@
 
         renderClosetOutfit();
         renderClosetItems(activeClosetCategory);
+        recordClosetInteraction(categoryId);
       }
 
       function clearClosetCategory(categoryId) {
         closetSelection[categoryId] = null;
         renderClosetOutfit();
         renderClosetItems(activeClosetCategory);
+        recordClosetInteraction(categoryId);
       }
 
       function renderClosetItems(categoryId) {
@@ -1499,6 +1660,7 @@
             tab.addEventListener("click", () => {
               activeClosetCategory = category.id;
               renderClosetItems(category.id);
+              recordClosetInteraction(category.id, tab);
             });
             tabs.append(tab);
           });
@@ -1523,10 +1685,17 @@
       });
 
       document.querySelector("#back-to-welcome").addEventListener("click", () => {
+        closetSuggestion.hidden = true;
         closetScreen.hidden = true;
         welcomeScreen.hidden = false;
         welcomeTitle.focus();
       });
+
+      document.querySelector("#closet-suggestion-dismiss").addEventListener("click", () => {
+        closetSuggestion.hidden = true;
+        suggestionReturnFocus?.focus();
+      });
+      window.addEventListener("resize", positionClosetSuggestion);
     </script>
   </body>
 </html>
